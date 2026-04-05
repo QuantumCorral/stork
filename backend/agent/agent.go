@@ -987,7 +987,7 @@ func (sa *StorkAgent) Serve() error {
 	agentapi.RegisterAgentServer(sa.server, sa)
 
 	// Prepare listener on configured address.
-	addr := net.JoinHostPort(sa.Host, strconv.Itoa(sa.Port))
+	addr := net.JoinHostPort("0.0.0.0", strconv.Itoa(sa.Port))
 	listenConfig := &net.ListenConfig{}
 	lis, err := listenConfig.Listen(context.Background(), "tcp", addr)
 	if err != nil {
